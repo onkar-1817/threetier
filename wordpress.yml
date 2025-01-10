@@ -1,4 +1,4 @@
-  GNU nano 5.8                                                             onkar.yml                                                                        version: '3.9'
+version: '3.9'
 services:
    db:
       image: mysql
