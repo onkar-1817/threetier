@@ -1,0 +1,31 @@
+  GNU nano 5.8                                                             onkar.yml                                                                        version: '3.9'
+services:
+   db:
+      image: mysql
+      ports:
+         - 3306
+      volumes:
+         - myvol:/var/lib/sql
+      networks:
+         - mynet
+      environment:
+         - MYSQL_ROOT_PASSWORD=onkar1817
+         - MYSQL_DATABASE=wordpress
+
+   website:
+      image: wordpress
+      ports:
+         - 80:80
+      networks:
+         - mynet
+      environment:
+         - WORDPRESS_DB_HOST=db
+         - WORDPRESS_DB_USER=root
+         - WORDPRESS_DB_PASSWORD=onkar1817
+         - WORDPRESS_DB_NAME=wordpress
+
+networks:
+    mynet:
+      driver: bridge
+volumes:
+   myvol:
